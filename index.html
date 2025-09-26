@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCA Department - Annada College Hazaribagh</title>
+<style>
+/* ===== Global Styling ===== */
+body {
+  font-family:'Segoe UI',Arial,sans-serif;
+  margin:0; padding:0;
+  background:#F9FAFB;
+  color:#111827;
+  line-height:1.6;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
+/* ===== Header ===== */
+header {
+  background:linear-gradient(135deg,#1E3A8A,#3B82F6);
+  color:white; padding:30px 20px;
+  text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+header img {
+  width:90px; border-radius:50%; border:3px solid #F59E0B;
+  margin-bottom:10px; background:white;
+}
+header h1 { font-size:2.2rem; margin:10px 0 5px; letter-spacing:1px; }
+header h2 { font-weight:normal; font-size:1.2rem; color:#FCD34D; }
+
+/* ===== Navigation ===== */
+nav {
+  background-color:#1E3A8A; text-align:center;
+  padding:12px 0; position:sticky; top:0; z-index:1000;
+}
+nav a {
+  color:white; text-decoration:none;
+  margin:0 12px; font-weight:600; font-size:1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding-bottom:5px;
+}
+nav a:hover { color:#F59E0B; transform:scale(1.05); }
+
+/* ===== Hero Section ===== */
+.hero {
+  position:relative;
+  width:100%; min-height:600px;
+  background:url('images/bca_banner.jpg') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+  padding:120px 20px; overflow:hidden;
+  animation:kenBurns 20s ease-in-out infinite;
+}
+.hero::before {
+  content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+  background-color: rgba(0,0,0,0.4);
+}
+.hero-content {
+  position:relative; text-align:center; color:white; z-index:1;
+  animation:fadeIn 2s ease forwards;
+}
+.hero-content h2 {
+  font-size:2.8rem; margin-bottom:15px;
+  text-shadow:2px 2px 6px rgba(0,0,0,0.6);
+}
+.hero-content p {
+  font-size:1.3rem; text-shadow:1px 1px 5px rgba(0,0,0,0.6);
+  min-height:30px;
+}
+
+/* Typing Animation */
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 0%,50%,100% { border-color: transparent; } 25%,75% { border-color: white; } }
+.typing { display:inline-block; overflow:hidden; white-space:nowrap; border-right:3px solid white;
+  animation: typing 3s steps(30,end), blink 0.75s step-end infinite; 
+}
+
+/* Ken Burns effect for hero */
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0,0); }
+  50% { transform: scale(1.1) translate(5px,5px); }
+  100% { transform: scale(1) translate(0,0); }
+}
+
+/* ===== Sections ===== */
+section {
+  padding:50px 20px; max-width:1100px; margin:auto;
+  opacity:0; transform: translateY(30px);
+  transition: all 1s ease;
+}
+section.visible { opacity:1; transform: translateY(0); }
+h2 {
+  color:#1E3A8A; border-left:5px solid #F59E0B;
+  padding-left:10px; margin-bottom:20px;
+}
+
+/* ===== Cards ===== */
+.highlights, .facilities-preview, .gallery-preview, .faculty-preview {
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:space-around; text-align:center;
+}
+.highlight-card, .card, .faculty-card {
+  background:white; padding:20px; border-radius:12px;
+  flex:1 1 250px; box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.highlight-card:hover, .card:hover, .faculty-card:hover {
+  transform:translateY(-8px) scale(1.02); box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+.highlight-card h3, .card h3, .faculty-card h3 {
+  margin-top:0; margin-bottom:10px; color:#007BFF;
+}
+
+/* ===== Gallery Grid ===== */
+.gallery-preview {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;
+}
+.gallery-preview img {
+  width:100%; height:200px; object-fit:cover;
+  border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor:pointer;
+}
+.gallery-preview img:hover {
+  transform:scale(1.08); box-shadow:0 6px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== Table ===== */
+table {
+  width:100%; border-collapse:collapse; background:white;
+  border-radius:8px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom:20px;
+}
+th,td { padding:12px; text-align:center; border:1px solid #ddd; }
+th { background:#1E3A8A; color:white; }
+tr:nth-child(even){ background:#F3F4F6; }
+
+/* ===== Notice ===== */
+#notice ul { list-style:none; padding:0; }
+#notice li {
+  background:#E0F2FE; padding:12px 15px; margin-bottom:10px;
+  border-radius:8px; border-left:5px solid #3B82F6; font-weight:500;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+#notice li:hover { transform:scale(1.02); background:#BAE6FD; }
+
+/* ===== Glowing Buttons ===== */
+.btn {
+  display:inline-block; background:#1E3A8A; color:white;
+  padding:12px 25px; border-radius:8px; text-decoration:none;
+  font-weight:bold; transition: all 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px #3B82F6;
+}
+.btn:hover {
+  background:#3B82F6;
+  transform:scale(1.05);
+  box-shadow: 0 0 15px #3B82F6, 0 0 30px #3B82F6;
+}
+
+/* ===== Footer ===== */
+footer { background:#1E3A8A; color:white; margin-top:40px; padding:20px 0; }
+footer a { color:white; text-decoration:none; margin:0 8px; }
+footer a:hover { color:#FCD34D; }
+footer .footer-container {
+  max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;
+}
+footer .contact, footer .social { flex:1; min-width:250px; margin-bottom:10px; }
+footer h3 { color:#FCD34D; margin-bottom:10px; }
+
+/* ===== Responsive ===== */
+@media (max-width:768px){
+  .highlights, .facilities-preview, .gallery-preview, .faculty-preview{ flex-direction:column; }
+  .hero-content h2{ font-size:2rem; }
+  .hero-content p{ font-size:1rem; }
+  footer .footer-container { flex-direction:column; align-items:center; text-align:center; }
+}
+
+/* ===== Lightbox Modal ===== */
+.lightbox-modal {
+  display:none; position:fixed; z-index:10000; padding-top:60px;
+  left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.9);
+}
+.lightbox-modal img {
+  margin:auto; display:block; max-width:90%; max-height:80%; border-radius:8px;
+}
+.lightbox-modal .close {
+  position:absolute; top:20px; right:35px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; transition:0.3s;
+}
+.lightbox-modal .close:hover { color:#bbb; }
+
+/* ===== Fade In Animation ===== */
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/college_logo.png" alt="College Logo">
+  <h1>Annada College, Hazaribagh</h1>
+  <h2>BCA Department</h2>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
+  <a href="admission_form.html">Admission</a>
+  <a href="facilities.html">Facilities</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="#notice">Notice</a>
+  <a href="timetable.html">Timetable</a>
+  <a href="bca_syllabus.html">Syllabus</a>
+  <a href="#faculty">Faculty</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2 class="typing">Welcome to the BCA Department</h2>
+    <p class="typing">Learn. Innovate. Succeed.</p>
+  </div>
+</section>
+
+<section>
+<h2>Department Highlights</h2>
+<div class="highlights">
+  <div class="highlight-card"><h3>💻 Computer Labs</h3><p>100+ high-end computers for practical learning.</p></div>
+  <div class="highlight-card"><h3>🎓 Experienced Faculty</h3><p>Industry and academia experts guide students.</p></div>
+  <div class="highlight-card"><h3>📚 Library</h3><p>Rich collection of books, journals and e-resources.</p></div>
+  <div class="highlight-card"><h3>💼 Placement Support</h3><p>Strong internship and placement assistance.</p></div>
+</div>
+</section>
+
+<section id="about">
+<h2>About BCA Department</h2>
+<p>The department has well-qualified faculty members, uninterrupted power supply, and high-speed internet. Faculty from other universities are invited regularly for special lectures and practical classes. The department has a well-equipped library and computer laboratories with more than 100 computer systems.</p>
+</section>
+
+<section>
+<h2>Facilities Preview</h2>
+<div class="facilities-preview">
+  <div class="card"><h3>💻 Computer Lab</h3><p>Latest PCs and software for practical learning.</p></div>
+  <div class="card"><h3>📚 Library</h3><p>Books, journals, and online resources available.</p></div>
+  <div class="card"><h3>🎤 Seminars</h3><p>Regular workshops and seminars for students.</p></div>
+</div>
+<p style="text-align:center;"><a href="facilities.html" class="btn">View All Facilities</a></p>
+</section>
+
+<section>
+<h2>Gallery Preview</h2>
+<div class="gallery-preview">
+  <img src="lab.jpg" alt="Computer Lab">
+  <img src="library.png" alt="Library">
+  <img src="seminar.jpeg" alt="Seminar">
+  <img src="images/college_building.png" alt="College Building">
+  <img src="images/computer_lab.png" alt="Computer Lab">
+  <img src="images/library.png" alt="Library">
+  <img src="images/seminar_hall.png" alt="Seminar Hall">
+  <img src="images/campus.png" alt="Campus">
+</div>
+<p style="text-align:center;"><a href="gallery.html" class="btn">View Full Gallery</a></p>
+</section>
+
+<div id="lightbox-modal" class="lightbox-modal">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<section>
+<h2>Timetable Preview</h2>
+<table>
+  <tr><th>Day</th><th>9-10 AM</th><th>10-11 AM</th><th>11-12 PM</th><th>12-1 PM</th></tr>
+  <tr><td>Monday</td><td>C Programming</td><td>Maths</td><td>DBMS</td><td>Lab</td></tr>
+  <tr><td>Tuesday</td><td>Java</td><td>OS</td><td>DBMS</td><td>Lab</td></tr>
+  <tr><td>Wednesday</td><td>OS</td><td>C++</td><td>Maths</td><td>Lab</td></tr>
+</table>
+<p style="text-align:center;"><a href="timetable.html" class="btn">View Full Timetable</a></p>
+</section>
+
+<section id="notice">
+<h2>Notice Board</h2>
+<ul>
+  <li>📢 Admission Open for Session 2025-26</li>
+  <li>📢 Mid-Semester Exams from 15th November</li>
+  <li>📢 Workshop on AI & Machine Learning – 10th October</li>
+</ul>
+</section>
+
+<section id="faculty">
+<h2>Our Faculty</h2>
+<div class="faculty-preview">
+  <div class="faculty-card"><h3>Prof. Sanjeev Chatarji</h3><p>Head of Department</p></div>
+  <div class="faculty-card"><h3>Prof. Dipti Rashmi</h3><p>Assistant Professor</p></div>
+</div>
+<p style="text-align:center;"><a href="faculty.html" class="btn">View All Faculty</a></p>
+</section>
+
+<section style="text-align:center;">
+<h2>Apply Now</h2>
+<p>Join the BCA program at Annada College.</p>
+<a href="admission_form.html" class="btn">Fill Admission Form</a>
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<p><b>Address:</b> Annada College, Hazaribagh, Jharkhand</p>
+<p><b>Email:</b> info@annadacollege.ac.in</p>
+<p><b>Phone:</b> +91-6546355700</p>
+<p><b>Website:</b><u> <a href="https://annadacollege.ac.in/" target="_blank" style="color:black; text-decoration:none;">www.annadacollege.ac.in</u></a></p>
+</section>
+
+<!-- ===== Footer ===== -->
+<!-- Footer -->
+<footer style="background:#1E3A8A; color:white; padding:20px;">
+  <div class="footer-container" style="display:flex; flex-wrap:wrap; justify-content:space-around; align-items:center; max-width:1100px; margin:auto;">
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p><b>Address:</b> Annada College, Hazaribagh, Jharkhand</p>
+      <p><b>Email:</b> info@annadacollege.ac.in</p>
+      <p><b>Phone:</b> +91-6546355700</p>
+	  <p><b>Website:</b><u> <a href="https://annadacollege.ac.in/" target="_blank" style="color:white; text-decoration:none;">www.annadacollege.ac.in</u></a></p>
+    </div>
+    <div class="social">
+      <h3>Follow Us</h3>
+      <a href="https://www.facebook.com/annadacollegehzb/" target="_blank" style="margin:0 10px;">
+        <img src="images/facebook.png" alt="Facebook" width="32" height="32">
+      </a>
+      <a href="https://www.instagram.com/annada_hzb?igsh=MnIxdzhsZm5keG5v" target="_blank" style="margin:0 10px;">
+        <img src="images/instagram.jpeg" alt="Instagram" width="32" height="32">
+      </a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:10px;color:white;font-size:0.9rem;">
+    Developed by Subham Kumar Ray | &copy; 2025 Annada College
+  </p>
+</footer>
+<!-- <footer>
+  <div class="footer-container">
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p><b>Address:</b> Annada College, Hazaribagh, Jharkhand</p>
+      <p><b>Email:</b> info@annadacollege.ac.in</p>
+      <p><b>Phone:</b> +91-6546355700</p>
+    </div>
+    <div class="social">
+      <h3>Follow Us</h3>
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:10px;color:white;font-size:0.9rem;">Developed by Subham Kumar Ray | &copy; 2025 Annada College</p>
+</footer> -->
+
+
+<script>
+// ===== Lightbox JS =====
+document.addEventListener('DOMContentLoaded', function(){
+  const modal = document.getElementById("lightbox-modal");
+  const modalImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementsByClassName("close")[0];
+
+  const galleryImages = document.querySelectorAll(".gallery-preview img");
+  galleryImages.forEach(img=>{
+    img.addEventListener('click', function(){
+      modal.style.display="block";
+      modalImg.src=this.src;
+    });
+  });
+
+  closeBtn.onclick=function(){ modal.style.display="none"; }
+  modal.addEventListener('click', function(e){
+    if(e.target===modal) modal.style.display="none";
+  });
+
+  // ===== Scroll Reveal =====
+  const sections = document.querySelectorAll("section");
+  const revealSection = () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100){
+        sec.classList.add("visible");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealSection);
+  revealSection();
+});
+</script>
+
+</body>
+</html>

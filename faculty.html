@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCA Faculty - Annada College</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F9FAFB;
+      margin: 0;
+      padding: 0;
+      color: #111827;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 10px 0;
+    }
+
+    /* Faculty Container */
+    .faculty-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .faculty-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .faculty-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #3B82F6;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    .faculty-card h3 {
+      margin: 10px 0 5px;
+      color: #1E3A8A;
+    }
+
+    .faculty-card p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .faculty-card a {
+      display: inline-block;
+      background: #1E3A8A;
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .faculty-card a:hover {
+      background: #3B82F6;
+    }
+
+    /* Course Features Section */
+    .course-section {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .course-section h2 {
+      color: #1E3A8A;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F59E0B;
+      padding-bottom: 10px;
+    }
+
+    .course-details {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    .course-details td {
+      padding: 12px 8px;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    .course-details td:first-child {
+      font-weight: bold;
+      width: 40%;
+      color: #333;
+    }
+
+    /* Download and View Buttons */
+    .btn-download, .btn-view {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn-download {
+      background: #22c55e;
+    }
+
+    .btn-download:hover {
+      background: #16a34a;
+    }
+
+    .btn-view {
+      background: #3B82F6;
+    }
+
+    .btn-view:hover {
+      background: #2563eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faculty-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BCA Department - Faculty & Course Details</h1>
+  </header>
+
+  <!-- ===== Faculty Section ===== -->
+  <div class="faculty-container">
+    <div class="faculty-card">
+      <img src="hod.png" alt="HOD Photo">
+      <h3>Sanjeev Chatarji</h3>
+      <p>Head of Department (HOD)</p>
+      <a href="hod.html">View Profile</a>
+    </div>
+
+    <div class="faculty-card">
+      <img src="assistant.png" alt="Assistant Teacher Photo">
+      <h3>Dipti Rashmi</h3>
+      <p>Assistant Teacher</p>
+      <a href="assistant.html">View Profile</a>
+    </div>
+  </div>
+
+  <!-- ===== Course Features Section ===== -->
+  <div class="course-section">
+    <h2>Course Features</h2>
+    <table class="course-details">
+      <tr>
+        <td>Department :</td>
+        <td>BCA</td>
+      </tr>
+      <tr>
+        <td>Course Duration :</td>
+        <td>3 Years</td>
+      </tr>
+      <tr>
+        <td>Course Eligibility :</td>
+        <td>
+          10+2 or Equivalent examination from any recognized board with at least 45% marks 
+          including Math/Business Math/Computer Science/IP.
+        </td>
+      </tr>
+      <tr>
+        <td>Total Semesters :</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Certification :</td>
+        <td>VBU, AICTE, UGC</td>
+      </tr>
+      <tr>
+        <td>Total Seats :</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>Fees :</td>
+        <td>
+          • Course Fee/Admission Fee – Rs. 20,000 per semester
+          <br>
+          <small>(Excluding Examination and Registration fees)</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Syllabus :</td>
+        <td><a class="btn-download" href="bca-syllabus.pdf" download>Download</a></td>
+      </tr>
+      <tr>
+        <td>Program Outcome :</td>
+        <td><a class="btn-view" href="program-outcome.pdf" target="_blank">View</a></td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

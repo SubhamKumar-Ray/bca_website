@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Annada College BCA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="lab.jpg" alt="Computer Lab">
+            <img src="library.png" alt="Library">
+            <img src="seminar.jpeg" alt="Seminar">
+			<img src="images/college_building.png" alt="College Building">
+			<img src="images/computer_lab.png" alt="Computer Lab">
+			<img src="images/library.png" alt="Library">
+			<img src="images/seminar_hall.png" alt="Seminar Hall">
+			<img src="images/campus.png" alt="Campus">
+        </div>
+    </section>
+
+</body>
+</html>

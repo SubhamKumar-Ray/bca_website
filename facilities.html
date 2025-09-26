@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCA Academic Facilities</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007BFF;
+      margin-bottom: 30px;
+    }
+
+    .facilities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+
+    .card p {
+      margin: 0;
+      color: #555;
+    }
+
+    .extra-facilities {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .extra-facilities h3 {
+      margin-top: 0;
+      color: #007BFF;
+      margin-bottom: 15px;
+    }
+
+    .extra-facilities ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .extra-facilities ul li {
+      margin-bottom: 10px;
+    }
+
+    @media(max-width: 768px) {
+      .facilities {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>BCA Academic Facilities</h1>
+</header>
+
+<div class="container">
+  <h2>Our Facilities</h2>
+
+  <div class="facilities">
+    <div class="card">
+      <h3>💻 Computer Lab</h3>
+      <p>Equipped with latest PCs, internet, and development tools for practical learning.</p>
+    </div>
+    <div class="card">
+      <h3>📚 Library</h3>
+      <p>Rich collection of programming, IT, and reference books. Library card is mandatory after admission.</p>
+    </div>
+    <div class="card">
+      <h3>👨‍🏫 Faculty</h3>
+      <p>Experienced professors and industry professionals as mentors for quality education.</p>
+    </div>
+    <div class="card">
+      <h3>🎤 Seminars & Workshops</h3>
+      <p>Regular workshops, seminars, and co-curricular activities to enhance skills.</p>
+    </div>
+    <div class="card">
+      <h3>💼 Placement Support</h3>
+      <p>Strong support for internships and campus placements with industry tie-ups.</p>
+    </div>
+  </div>
+
+  <div class="extra-facilities">
+    <h3>Additional Academic Facilities:</h3>
+    <ul>
+      <li>Wi-Fi enabled campus</li>
+      <li>Lecture Rooms</li>
+      <li>CCTV Surveillance for safety</li>
+      <li>Uninterrupted Power Supply</li>
+      <li>High-Speed Internet Facility</li>
+      <li>E-Kalyan Scholarship support</li>
+      <li>Co-curricular and skill enhancement activities</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
